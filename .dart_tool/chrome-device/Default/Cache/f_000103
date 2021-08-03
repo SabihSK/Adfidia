@@ -1,0 +1,370 @@
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/adfidia/screens/onBoard.dart', 'packages/flutter/src/widgets/safe_area.dart', 'packages/flutter/src/painting/box_decoration.dart', 'packages/flutter/src/painting/decoration_image.dart', 'packages/flutter/src/painting/image_resolution.dart', 'packages/flutter/src/painting/box_fit.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/material/colors.dart'], (function load__packages__adfidia__screens__splash_screen_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__adfidia__screens__onBoard$46dart, packages__flutter__src__widgets__safe_area$46dart, packages__flutter__src__painting__box_decoration$46dart, packages__flutter__src__painting__decoration_image$46dart, packages__flutter__src__painting__image_resolution$46dart, packages__flutter__src__painting__box_fit$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__material__colors$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const async = dart_sdk.async;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const image = packages__flutter__src__widgets__widget_span$46dart.src__widgets__image;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const onBoard = packages__adfidia__screens__onBoard$46dart.screens__onBoard;
+  const safe_area = packages__flutter__src__widgets__safe_area$46dart.src__widgets__safe_area;
+  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+  const decoration_image = packages__flutter__src__painting__decoration_image$46dart.src__painting__decoration_image;
+  const image_resolution = packages__flutter__src__painting__image_resolution$46dart.src__painting__image_resolution;
+  const box_fit = packages__flutter__src__painting__box_fit$46dart.src__painting__box_fit;
+  const scaffold = packages__flutter__src__material__icon_button$46dart.src__material__scaffold;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  var splash_screen = Object.create(dart.library);
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    ObjectN: () => (T.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 17,
+        [_Location_line]: 38,
+        [_Location_file]: null
+      });
+    },
+    get C1() {
+      return C[1] = dart.constList([C[2] || CT.C2], widget_inspector._Location);
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 37,
+        [_Location_file]: "file:///D:/SK%20Practice/DATech/Adfidia/lib/screens/splash_screen.dart"
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "name",
+        [_Location_column]: 23,
+        [_Location_line]: 49,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 23,
+        [_Location_line]: 50,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C[4] = dart.constList([C[5] || CT.C5, C[6] || CT.C6], widget_inspector._Location);
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[4] || CT.C4,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 48,
+        [_Location_file]: "file:///D:/SK%20Practice/DATech/Adfidia/lib/screens/splash_screen.dart"
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 23,
+        [_Location_line]: 53,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C[8] = dart.constList([C[9] || CT.C9], widget_inspector._Location);
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[8] || CT.C8,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 52,
+        [_Location_file]: "file:///D:/SK%20Practice/DATech/Adfidia/lib/screens/splash_screen.dart"
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 23,
+        [_Location_line]: 56,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 23,
+        [_Location_line]: 57,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.constList([C[12] || CT.C12, C[13] || CT.C13], widget_inspector._Location);
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[11] || CT.C11,
+        [_Location_name]: null,
+        [_Location_column]: 21,
+        [_Location_line]: 55,
+        [_Location_file]: "file:///D:/SK%20Practice/DATech/Adfidia/lib/screens/splash_screen.dart"
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 19,
+        [_Location_line]: 46,
+        [_Location_file]: null
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 19,
+        [_Location_line]: 47,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C[15] = dart.constList([C[16] || CT.C16, C[17] || CT.C17], widget_inspector._Location);
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[15] || CT.C15,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 45,
+        [_Location_file]: "file:///D:/SK%20Practice/DATech/Adfidia/lib/screens/splash_screen.dart"
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 45,
+        [_Location_file]: null
+      });
+    },
+    get C19() {
+      return C[19] = dart.constList([C[20] || CT.C20], widget_inspector._Location);
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[19] || CT.C19,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 44,
+        [_Location_file]: "file:///D:/SK%20Practice/DATech/Adfidia/lib/screens/splash_screen.dart"
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 13,
+        [_Location_line]: 36,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C[22] = dart.constList([C[23] || CT.C23], widget_inspector._Location);
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[22] || CT.C22,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 35,
+        [_Location_file]: "file:///D:/SK%20Practice/DATech/Adfidia/lib/screens/splash_screen.dart"
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "body",
+        [_Location_column]: 11,
+        [_Location_line]: 35,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.constList([C[26] || CT.C26], widget_inspector._Location);
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[25] || CT.C25,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 34,
+        [_Location_file]: "file:///D:/SK%20Practice/DATech/Adfidia/lib/screens/splash_screen.dart"
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 9,
+        [_Location_line]: 30,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 34,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.constList([C[29] || CT.C29, C[30] || CT.C30], widget_inspector._Location);
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[28] || CT.C28,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 29,
+        [_Location_file]: "file:///D:/SK%20Practice/DATech/Adfidia/lib/screens/splash_screen.dart"
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 29,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C[32] = dart.constList([C[33] || CT.C33], widget_inspector._Location);
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[32] || CT.C32,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 28,
+        [_Location_file]: "file:///D:/SK%20Practice/DATech/Adfidia/lib/screens/splash_screen.dart"
+      });
+    }
+  }, false);
+  var C = Array(34).fill(void 0);
+  var I = ["package:adfidia/screens/splash_screen.dart"];
+  splash_screen.SplashScreen = class SplashScreen extends framework.StatefulWidget {
+    createState() {
+      return new splash_screen._SplashScreenState.new();
+    }
+  };
+  (splash_screen.SplashScreen.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    splash_screen.SplashScreen.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = splash_screen.SplashScreen.prototype;
+  dart.addTypeTests(splash_screen.SplashScreen);
+  dart.addTypeCaches(splash_screen.SplashScreen);
+  dart.setMethodSignature(splash_screen.SplashScreen, () => ({
+    __proto__: dart.getMethods(splash_screen.SplashScreen.__proto__),
+    createState: dart.fnType(splash_screen._SplashScreenState, [])
+  }));
+  dart.setLibraryUri(splash_screen.SplashScreen, I[0]);
+  dart.defineLazy(splash_screen.SplashScreen, {
+    /*splash_screen.SplashScreen.route*/get route() {
+      return "/";
+    },
+    set route(_) {}
+  }, false);
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  splash_screen._SplashScreenState = class _SplashScreenState extends framework.State$(splash_screen.SplashScreen) {
+    initState() {
+      super.initState();
+    }
+    build(context) {
+      let width = media_query.MediaQuery.of(context).size.width;
+      async.Timer.new(new core.Duration.new({seconds: 3}), dart.fn(() => navigator.Navigator.pushReplacementNamed(T.ObjectN(), T.ObjectN(), context, onBoard.OnboardingScreen.route), T.VoidTovoid()));
+      return new safe_area.SafeArea.new({child: new container.Container.new({decoration: new box_decoration.BoxDecoration.new({image: new decoration_image.DecorationImage.new({image: new image_resolution.AssetImage.new("assets/images/Background.png"), fit: box_fit.BoxFit.cover})}), child: new scaffold.Scaffold.new({body: new basic.Stack.new({children: T.JSArrayOfWidget().of([new container.Container.new({decoration: new box_decoration.BoxDecoration.new({image: new decoration_image.DecorationImage.new({image: new image_resolution.AssetImage.new("assets/images/Background.png"), fit: box_fit.BoxFit.cover})}), $creationLocationd_0dea112b090073317d4: C[0] || CT.C0}), new basic.Center.new({child: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.center, children: T.JSArrayOfWidget().of([new image.Image.asset("assets/images/logo.png", {width: width * 0.5, $creationLocationd_0dea112b090073317d4: C[3] || CT.C3}), new basic.SizedBox.new({height: width * 0.1, $creationLocationd_0dea112b090073317d4: C[7] || CT.C7}), new text.Text.new("A D F I D I A", {style: new text_style.TextStyle.new({fontSize: width * 0.09, color: colors.Colors.white}), $creationLocationd_0dea112b090073317d4: C[10] || CT.C10})]), $creationLocationd_0dea112b090073317d4: C[14] || CT.C14}), $creationLocationd_0dea112b090073317d4: C[18] || CT.C18})]), $creationLocationd_0dea112b090073317d4: C[21] || CT.C21}), $creationLocationd_0dea112b090073317d4: C[24] || CT.C24}), $creationLocationd_0dea112b090073317d4: C[27] || CT.C27}), $creationLocationd_0dea112b090073317d4: C[31] || CT.C31});
+    }
+  };
+  (splash_screen._SplashScreenState.new = function() {
+    splash_screen._SplashScreenState.__proto__.new.call(this);
+    ;
+  }).prototype = splash_screen._SplashScreenState.prototype;
+  dart.addTypeTests(splash_screen._SplashScreenState);
+  dart.addTypeCaches(splash_screen._SplashScreenState);
+  dart.setMethodSignature(splash_screen._SplashScreenState, () => ({
+    __proto__: dart.getMethods(splash_screen._SplashScreenState.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(splash_screen._SplashScreenState, I[0]);
+  dart.trackLibraries("packages/adfidia/screens/splash_screen.dart", {
+    "package:adfidia/screens/splash_screen.dart": splash_screen
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["splash_screen.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAUsC;IAAoB;;;QAH/B;;AAAQ,8DAAW,GAAG;;EAAC;;;;;;;;;MADlC,gCAAK;YAAG;;;;;;;;;;;AAUH,MAAX;IACR;UAG0B;AACjB,kBAAmB,AAAY,AAAK,0BAAd,OAAO;AAIsC,MAD1E,gBAAM,gCAAkB,KACpB,cAAgB,mEAAqB,OAAO,EAAmB;AAEnE,YAAO,oCACE,yCACO,6CACD,iDACI,oCAAW,sCACN,iCACb,iCACC,+BACM,wBACR,yCACc,6CACH,iDACI,oCAAW,sCACN,mFAGpB,6BACS,yCACgC,yCAC3B,wBACF,sBACJ,kCACO,AAAM,KAAD,GAAG,8DAEjB,gCACU,AAAM,KAAD,GAAG,8DAElB,kBACE,yBACO,wCACO,AAAM,KAAD,GAAG,aAAoB;IAU9D;;;;;EACF","file":"../../../../../packages/adfidia/screens/splash_screen.dart.lib.js"}');
+  // Exports:
+  return {
+    screens__splash_screen: splash_screen
+  };
+}));
+
+//# sourceMappingURL=splash_screen.dart.lib.js.map

@@ -82,10 +82,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               ),
                             )),
                   SizedBox(
-                    height: width > 375 ? width * 0.05 : width * 0.00,
+                    height: width > 374 ? width * 0.05 : width * 0.00,
                   ),
                   Container(
-                    height: width > 375 ? width * 1.2 : width * 1.1,
+                    height: width > 374 ? width * 1.2 : width * 1.1,
                     // color: Colors.amber,
                     child: PageView(
                       physics: ClampingScrollPhysics(),
