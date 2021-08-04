@@ -1,367 +1,539 @@
-define(['dart_sdk', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/physics/tolerance.dart', 'packages/flutter/src/physics/utils.dart', 'packages/flutter/src/physics/simulation.dart'], (function load__packages__flutter__src__physics__spring_simulation_dart(dart_sdk, packages__flutter__src__foundation__object$46dart, packages__flutter__src__physics__tolerance$46dart, packages__flutter__src__physics__utils$46dart, packages__flutter__src__physics__simulation$46dart) {
+define(['dart_sdk', 'packages/flutter/src/painting/basic_types.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/rendering/layer.dart'], (function load__packages__flutter__src__widgets__overflow_bar_dart(dart_sdk, packages__flutter__src__painting__basic_types$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__rendering__layer$46dart) {
   'use strict';
   const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
   const math = dart_sdk.math;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
-  const tolerance = packages__flutter__src__physics__tolerance$46dart.src__physics__tolerance;
-  const utils = packages__flutter__src__physics__utils$46dart.src__physics__utils;
-  const simulation = packages__flutter__src__physics__simulation$46dart.src__physics__simulation;
-  var spring_simulation = Object.create(dart.library);
-  var $toStringAsFixed = dartx.toStringAsFixed;
+  const basic_types = packages__flutter__src__painting__basic_types$46dart.src__painting__basic_types;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const object = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
+  var overflow_bar = Object.create(dart.library);
   dart._checkModuleNullSafetyMode(true);
+  var T = {
+    EnumPropertyOfOverflowBarAlignment: () => (T.EnumPropertyOfOverflowBarAlignment = dart.constFn(diagnostics.EnumProperty$(overflow_bar.OverflowBarAlignment)))(),
+    EnumPropertyOfVerticalDirection: () => (T.EnumPropertyOfVerticalDirection = dart.constFn(diagnostics.EnumProperty$(basic_types.VerticalDirection)))(),
+    EnumPropertyOfTextDirection: () => (T.EnumPropertyOfTextDirection = dart.constFn(diagnostics.EnumProperty$(ui.TextDirection)))(),
+    RenderBoxN: () => (T.RenderBoxN = dart.constFn(dart.nullable(box.RenderBox)))(),
+    VoidToRenderBoxN: () => (T.VoidToRenderBoxN = dart.constFn(dart.fnType(T.RenderBoxN(), [])))()
+  };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: spring_simulation.SpringType.prototype,
-        [_name$]: "SpringType.criticallyDamped",
+        __proto__: overflow_bar.OverflowBarAlignment.prototype,
+        [_name$]: "OverflowBarAlignment.start",
         index: 0
       });
     },
     get C1() {
       return C[1] = dart.const({
-        __proto__: spring_simulation.SpringType.prototype,
-        [_name$]: "SpringType.underDamped",
+        __proto__: overflow_bar.OverflowBarAlignment.prototype,
+        [_name$]: "OverflowBarAlignment.end",
         index: 1
       });
     },
     get C2() {
       return C[2] = dart.const({
-        __proto__: spring_simulation.SpringType.prototype,
-        [_name$]: "SpringType.overDamped",
+        __proto__: overflow_bar.OverflowBarAlignment.prototype,
+        [_name$]: "OverflowBarAlignment.center",
         index: 2
       });
     },
     get C3() {
-      return C[3] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2], spring_simulation.SpringType);
+      return C[3] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2], overflow_bar.OverflowBarAlignment);
     },
     get C4() {
       return C[4] = dart.const({
-        __proto__: tolerance.Tolerance.prototype,
-        [Tolerance_velocity]: 0.001,
-        [Tolerance_time]: 0.001,
-        [Tolerance_distance]: 0.001
+        __proto__: basic_types.VerticalDirection.prototype,
+        [_name]: "VerticalDirection.down",
+        index: 1
       });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: ui.Clip.prototype,
+        [_name$0]: "Clip.none",
+        index: 0
+      });
+    },
+    get C6() {
+      return C[6] = dart.constList([], framework.Widget);
     }
   }, false);
-  var C = Array(5).fill(void 0);
+  var C = Array(7).fill(void 0);
   var I = [
-    "package:flutter/src/physics/spring_simulation.dart",
-    "file:///F:/Programs/Flutter/packages/flutter/lib/src/physics/spring_simulation.dart"
+    "package:flutter/src/widgets/overflow_bar.dart",
+    "file:///F:/Programs/Flutter/packages/flutter/lib/src/widgets/overflow_bar.dart"
   ];
-  var mass$ = dart.privateName(spring_simulation, "SpringDescription.mass");
-  var stiffness$ = dart.privateName(spring_simulation, "SpringDescription.stiffness");
-  var damping$ = dart.privateName(spring_simulation, "SpringDescription.damping");
-  spring_simulation.SpringDescription = class SpringDescription extends core.Object {
-    get mass() {
-      return this[mass$];
-    }
-    set mass(value) {
-      super.mass = value;
-    }
-    get stiffness() {
-      return this[stiffness$];
-    }
-    set stiffness(value) {
-      super.stiffness = value;
-    }
-    get damping() {
-      return this[damping$];
-    }
-    set damping(value) {
-      super.damping = value;
-    }
-    toString() {
-      return object.objectRuntimeType(this, "SpringDescription") + "(mass: " + this.mass[$toStringAsFixed](1) + ", stiffness: " + this.stiffness[$toStringAsFixed](1) + ", damping: " + this.damping[$toStringAsFixed](1) + ")";
-    }
-  };
-  (spring_simulation.SpringDescription.new = function(opts) {
-    let mass = opts && 'mass' in opts ? opts.mass : null;
-    let stiffness = opts && 'stiffness' in opts ? opts.stiffness : null;
-    let damping = opts && 'damping' in opts ? opts.damping : null;
-    this[mass$] = mass;
-    this[stiffness$] = stiffness;
-    this[damping$] = damping;
-    ;
-  }).prototype = spring_simulation.SpringDescription.prototype;
-  (spring_simulation.SpringDescription.withDampingRatio = function(opts) {
-    let mass = opts && 'mass' in opts ? opts.mass : null;
-    let stiffness = opts && 'stiffness' in opts ? opts.stiffness : null;
-    let ratio = opts && 'ratio' in opts ? opts.ratio : 1;
-    this[mass$] = mass;
-    this[stiffness$] = stiffness;
-    this[damping$] = ratio * 2.0 * math.sqrt(mass * stiffness);
-    ;
-  }).prototype = spring_simulation.SpringDescription.prototype;
-  dart.addTypeTests(spring_simulation.SpringDescription);
-  dart.addTypeCaches(spring_simulation.SpringDescription);
-  dart.setLibraryUri(spring_simulation.SpringDescription, I[0]);
-  dart.setFieldSignature(spring_simulation.SpringDescription, () => ({
-    __proto__: dart.getFields(spring_simulation.SpringDescription.__proto__),
-    mass: dart.finalFieldType(core.double),
-    stiffness: dart.finalFieldType(core.double),
-    damping: dart.finalFieldType(core.double)
-  }));
-  dart.defineExtensionMethods(spring_simulation.SpringDescription, ['toString']);
-  var _name$ = dart.privateName(spring_simulation, "_name");
-  spring_simulation.SpringType = class SpringType extends core.Object {
+  var _name$ = dart.privateName(overflow_bar, "_name");
+  overflow_bar.OverflowBarAlignment = class OverflowBarAlignment extends core.Object {
     toString() {
       return this[_name$];
     }
   };
-  (spring_simulation.SpringType.new = function(index, _name) {
+  (overflow_bar.OverflowBarAlignment.new = function(index, _name) {
     this.index = index;
     this[_name$] = _name;
     ;
-  }).prototype = spring_simulation.SpringType.prototype;
-  dart.addTypeTests(spring_simulation.SpringType);
-  dart.addTypeCaches(spring_simulation.SpringType);
-  dart.setLibraryUri(spring_simulation.SpringType, I[0]);
-  dart.setFieldSignature(spring_simulation.SpringType, () => ({
-    __proto__: dart.getFields(spring_simulation.SpringType.__proto__),
+  }).prototype = overflow_bar.OverflowBarAlignment.prototype;
+  dart.addTypeTests(overflow_bar.OverflowBarAlignment);
+  dart.addTypeCaches(overflow_bar.OverflowBarAlignment);
+  dart.setLibraryUri(overflow_bar.OverflowBarAlignment, I[0]);
+  dart.setFieldSignature(overflow_bar.OverflowBarAlignment, () => ({
+    __proto__: dart.getFields(overflow_bar.OverflowBarAlignment.__proto__),
     index: dart.finalFieldType(core.int),
     [_name$]: dart.finalFieldType(core.String)
   }));
-  dart.defineExtensionMethods(spring_simulation.SpringType, ['toString']);
-  spring_simulation.SpringType.criticallyDamped = C[0] || CT.C0;
-  spring_simulation.SpringType.underDamped = C[1] || CT.C1;
-  spring_simulation.SpringType.overDamped = C[2] || CT.C2;
-  spring_simulation.SpringType.values = C[3] || CT.C3;
-  var Tolerance_velocity = dart.privateName(tolerance, "Tolerance.velocity");
-  var Tolerance_time = dart.privateName(tolerance, "Tolerance.time");
-  var Tolerance_distance = dart.privateName(tolerance, "Tolerance.distance");
-  var _endPosition = dart.privateName(spring_simulation, "_endPosition");
-  var _solution = dart.privateName(spring_simulation, "_solution");
-  spring_simulation.SpringSimulation = class SpringSimulation extends simulation.Simulation {
-    get type() {
-      return this[_solution].type;
+  dart.defineExtensionMethods(overflow_bar.OverflowBarAlignment, ['toString']);
+  overflow_bar.OverflowBarAlignment.start = C[0] || CT.C0;
+  overflow_bar.OverflowBarAlignment.end = C[1] || CT.C1;
+  overflow_bar.OverflowBarAlignment.center = C[2] || CT.C2;
+  overflow_bar.OverflowBarAlignment.values = C[3] || CT.C3;
+  var spacing$ = dart.privateName(overflow_bar, "OverflowBar.spacing");
+  var overflowSpacing$ = dart.privateName(overflow_bar, "OverflowBar.overflowSpacing");
+  var overflowAlignment$ = dart.privateName(overflow_bar, "OverflowBar.overflowAlignment");
+  var overflowDirection$ = dart.privateName(overflow_bar, "OverflowBar.overflowDirection");
+  var textDirection$ = dart.privateName(overflow_bar, "OverflowBar.textDirection");
+  var clipBehavior$ = dart.privateName(overflow_bar, "OverflowBar.clipBehavior");
+  var _name = dart.privateName(basic_types, "_name");
+  var _name$0 = dart.privateName(ui, "_name");
+  overflow_bar.OverflowBar = class OverflowBar extends framework.MultiChildRenderObjectWidget {
+    get spacing() {
+      return this[spacing$];
     }
-    x(time) {
-      return this[_endPosition] + this[_solution].x(time);
+    set spacing(value) {
+      super.spacing = value;
     }
-    dx(time) {
-      return this[_solution].dx(time);
+    get overflowSpacing() {
+      return this[overflowSpacing$];
     }
-    isDone(time) {
-      return utils.nearZero(this[_solution].x(time), this.tolerance.distance) && utils.nearZero(this[_solution].dx(time), this.tolerance.velocity);
+    set overflowSpacing(value) {
+      super.overflowSpacing = value;
     }
-    toString() {
-      return object.objectRuntimeType(this, "SpringSimulation") + "(end: " + dart.str(this[_endPosition]) + ", " + dart.str(this.type) + ")";
+    get overflowAlignment() {
+      return this[overflowAlignment$];
+    }
+    set overflowAlignment(value) {
+      super.overflowAlignment = value;
+    }
+    get overflowDirection() {
+      return this[overflowDirection$];
+    }
+    set overflowDirection(value) {
+      super.overflowDirection = value;
+    }
+    get textDirection() {
+      return this[textDirection$];
+    }
+    set textDirection(value) {
+      super.textDirection = value;
+    }
+    get clipBehavior() {
+      return this[clipBehavior$];
+    }
+    set clipBehavior(value) {
+      super.clipBehavior = value;
+    }
+    createRenderObject(context) {
+      let t0;
+      return new overflow_bar._RenderOverflowBar.new({spacing: this.spacing, overflowSpacing: this.overflowSpacing, overflowAlignment: this.overflowAlignment, overflowDirection: this.overflowDirection, textDirection: (t0 = this.textDirection, t0 == null ? basic.Directionality.of(context) : t0), clipBehavior: this.clipBehavior});
+    }
+    updateRenderObject(context, renderObject) {
+      let t1, t0;
+      overflow_bar._RenderOverflowBar.as(renderObject);
+      t0 = renderObject;
+      (() => {
+        t0.spacing = this.spacing;
+        t0.overflowSpacing = this.overflowSpacing;
+        t0.overflowAlignment = this.overflowAlignment;
+        t0.overflowDirection = this.overflowDirection;
+        t0.textDirection = (t1 = this.textDirection, t1 == null ? basic.Directionality.of(context) : t1);
+        t0.clipBehavior = this.clipBehavior;
+        return t0;
+      })();
+    }
+    debugFillProperties(properties) {
+      super.debugFillProperties(properties);
+      properties.add(new diagnostics.DoubleProperty.new("spacing", this.spacing, {defaultValue: 0}));
+      properties.add(new diagnostics.DoubleProperty.new("overflowSpacing", this.overflowSpacing, {defaultValue: 0}));
+      properties.add(new (T.EnumPropertyOfOverflowBarAlignment()).new("overflowAlignment", this.overflowAlignment, {defaultValue: overflow_bar.OverflowBarAlignment.start}));
+      properties.add(new (T.EnumPropertyOfVerticalDirection()).new("overflowDirection", this.overflowDirection, {defaultValue: basic_types.VerticalDirection.down}));
+      properties.add(new (T.EnumPropertyOfTextDirection()).new("textDirection", this.textDirection, {defaultValue: null}));
     }
   };
-  (spring_simulation.SpringSimulation.new = function(spring, start, end, velocity, opts) {
-    let tolerance = opts && 'tolerance' in opts ? opts.tolerance : C[4] || CT.C4;
-    this[_endPosition] = end;
-    this[_solution] = spring_simulation._SpringSolution.new(spring, start - end, velocity);
-    spring_simulation.SpringSimulation.__proto__.new.call(this, {tolerance: tolerance});
+  (overflow_bar.OverflowBar.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let spacing = opts && 'spacing' in opts ? opts.spacing : 0;
+    let overflowSpacing = opts && 'overflowSpacing' in opts ? opts.overflowSpacing : 0;
+    let overflowAlignment = opts && 'overflowAlignment' in opts ? opts.overflowAlignment : C[0] || CT.C0;
+    let overflowDirection = opts && 'overflowDirection' in opts ? opts.overflowDirection : C[4] || CT.C4;
+    let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[5] || CT.C5;
+    let children = opts && 'children' in opts ? opts.children : C[6] || CT.C6;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[spacing$] = spacing;
+    this[overflowSpacing$] = overflowSpacing;
+    this[overflowAlignment$] = overflowAlignment;
+    this[overflowDirection$] = overflowDirection;
+    this[textDirection$] = textDirection;
+    this[clipBehavior$] = clipBehavior;
+    if (!(spacing !== null)) dart.assertFailed(null, I[1], 112, 15, "spacing != null");
+    if (!(overflowSpacing !== null)) dart.assertFailed(null, I[1], 113, 15, "overflowSpacing != null");
+    if (!(overflowAlignment !== null)) dart.assertFailed(null, I[1], 114, 15, "overflowAlignment != null");
+    if (!(overflowDirection !== null)) dart.assertFailed(null, I[1], 115, 15, "overflowDirection != null");
+    if (!(clipBehavior !== null)) dart.assertFailed(null, I[1], 116, 15, "clipBehavior != null");
+    overflow_bar.OverflowBar.__proto__.new.call(this, {key: key, children: children, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = spring_simulation.SpringSimulation.prototype;
-  dart.addTypeTests(spring_simulation.SpringSimulation);
-  dart.addTypeCaches(spring_simulation.SpringSimulation);
-  dart.setMethodSignature(spring_simulation.SpringSimulation, () => ({
-    __proto__: dart.getMethods(spring_simulation.SpringSimulation.__proto__),
-    x: dart.fnType(core.double, [core.double]),
-    dx: dart.fnType(core.double, [core.double]),
-    isDone: dart.fnType(core.bool, [core.double])
+  }).prototype = overflow_bar.OverflowBar.prototype;
+  dart.addTypeTests(overflow_bar.OverflowBar);
+  dart.addTypeCaches(overflow_bar.OverflowBar);
+  dart.setMethodSignature(overflow_bar.OverflowBar, () => ({
+    __proto__: dart.getMethods(overflow_bar.OverflowBar.__proto__),
+    createRenderObject: dart.fnType(overflow_bar._RenderOverflowBar, [framework.BuildContext])
   }));
-  dart.setGetterSignature(spring_simulation.SpringSimulation, () => ({
-    __proto__: dart.getGetters(spring_simulation.SpringSimulation.__proto__),
-    type: spring_simulation.SpringType
+  dart.setLibraryUri(overflow_bar.OverflowBar, I[0]);
+  dart.setFieldSignature(overflow_bar.OverflowBar, () => ({
+    __proto__: dart.getFields(overflow_bar.OverflowBar.__proto__),
+    spacing: dart.finalFieldType(core.double),
+    overflowSpacing: dart.finalFieldType(core.double),
+    overflowAlignment: dart.finalFieldType(overflow_bar.OverflowBarAlignment),
+    overflowDirection: dart.finalFieldType(basic_types.VerticalDirection),
+    textDirection: dart.finalFieldType(dart.nullable(ui.TextDirection)),
+    clipBehavior: dart.finalFieldType(ui.Clip)
   }));
-  dart.setLibraryUri(spring_simulation.SpringSimulation, I[0]);
-  dart.setFieldSignature(spring_simulation.SpringSimulation, () => ({
-    __proto__: dart.getFields(spring_simulation.SpringSimulation.__proto__),
-    [_endPosition]: dart.finalFieldType(core.double),
-    [_solution]: dart.finalFieldType(spring_simulation._SpringSolution)
-  }));
-  dart.defineExtensionMethods(spring_simulation.SpringSimulation, ['toString']);
-  spring_simulation.ScrollSpringSimulation = class ScrollSpringSimulation extends spring_simulation.SpringSimulation {
-    x(time) {
-      return this.isDone(time) ? this[_endPosition] : super.x(time);
-    }
-  };
-  (spring_simulation.ScrollSpringSimulation.new = function(spring, start, end, velocity, opts) {
-    let tolerance = opts && 'tolerance' in opts ? opts.tolerance : C[4] || CT.C4;
-    spring_simulation.ScrollSpringSimulation.__proto__.new.call(this, spring, start, end, velocity, {tolerance: tolerance});
+  overflow_bar._OverflowBarParentData = class _OverflowBarParentData extends box.ContainerBoxParentData$(box.RenderBox) {};
+  (overflow_bar._OverflowBarParentData.new = function() {
+    overflow_bar._OverflowBarParentData.__proto__.new.call(this);
     ;
-  }).prototype = spring_simulation.ScrollSpringSimulation.prototype;
-  dart.addTypeTests(spring_simulation.ScrollSpringSimulation);
-  dart.addTypeCaches(spring_simulation.ScrollSpringSimulation);
-  dart.setLibraryUri(spring_simulation.ScrollSpringSimulation, I[0]);
-  spring_simulation._SpringSolution = class _SpringSolution extends core.Object {
-    static new(spring, initialPosition, initialVelocity) {
-      if (!(spring !== null)) dart.assertFailed(null, I[1], 156, 12, "spring != null");
-      if (!(spring.mass !== null)) dart.assertFailed(null, I[1], 157, 12, "spring.mass != null");
-      if (!(spring.stiffness !== null)) dart.assertFailed(null, I[1], 158, 12, "spring.stiffness != null");
-      if (!(spring.damping !== null)) dart.assertFailed(null, I[1], 159, 12, "spring.damping != null");
-      if (!(initialPosition !== null)) dart.assertFailed(null, I[1], 160, 12, "initialPosition != null");
-      if (!(initialVelocity !== null)) dart.assertFailed(null, I[1], 161, 12, "initialVelocity != null");
-      let cmk = spring.damping * spring.damping - 4 * spring.mass * spring.stiffness;
-      if (cmk === 0.0) return spring_simulation._CriticalSolution.new(spring, initialPosition, initialVelocity);
-      if (cmk > 0.0) return spring_simulation._OverdampedSolution.new(spring, initialPosition, initialVelocity);
-      return spring_simulation._UnderdampedSolution.new(spring, initialPosition, initialVelocity);
+  }).prototype = overflow_bar._OverflowBarParentData.prototype;
+  dart.addTypeTests(overflow_bar._OverflowBarParentData);
+  dart.addTypeCaches(overflow_bar._OverflowBarParentData);
+  dart.setLibraryUri(overflow_bar._OverflowBarParentData, I[0]);
+  var _clipBehavior = dart.privateName(overflow_bar, "_clipBehavior");
+  var _spacing = dart.privateName(overflow_bar, "_spacing");
+  var _overflowSpacing = dart.privateName(overflow_bar, "_overflowSpacing");
+  var _overflowAlignment = dart.privateName(overflow_bar, "_overflowAlignment");
+  var _overflowDirection = dart.privateName(overflow_bar, "_overflowDirection");
+  var _textDirection = dart.privateName(overflow_bar, "_textDirection");
+  const RenderBox_ContainerRenderObjectMixin$36 = class RenderBox_ContainerRenderObjectMixin extends box.RenderBox {};
+  (RenderBox_ContainerRenderObjectMixin$36.new = function() {
+    object.ContainerRenderObjectMixin$(box.RenderBox, overflow_bar._OverflowBarParentData)[dart.mixinNew].call(this);
+    RenderBox_ContainerRenderObjectMixin$36.__proto__.new.call(this);
+  }).prototype = RenderBox_ContainerRenderObjectMixin$36.prototype;
+  dart.applyMixin(RenderBox_ContainerRenderObjectMixin$36, object.ContainerRenderObjectMixin$(box.RenderBox, overflow_bar._OverflowBarParentData));
+  const RenderBox_RenderBoxContainerDefaultsMixin$36 = class RenderBox_RenderBoxContainerDefaultsMixin extends RenderBox_ContainerRenderObjectMixin$36 {};
+  (RenderBox_RenderBoxContainerDefaultsMixin$36.new = function() {
+    RenderBox_RenderBoxContainerDefaultsMixin$36.__proto__.new.call(this);
+  }).prototype = RenderBox_RenderBoxContainerDefaultsMixin$36.prototype;
+  dart.applyMixin(RenderBox_RenderBoxContainerDefaultsMixin$36, box.RenderBoxContainerDefaultsMixin$(box.RenderBox, overflow_bar._OverflowBarParentData));
+  overflow_bar._RenderOverflowBar = class _RenderOverflowBar extends RenderBox_RenderBoxContainerDefaultsMixin$36 {
+    get spacing() {
+      return this[_spacing];
+    }
+    set spacing(value) {
+      if (!(value !== null)) dart.assertFailed(null, I[1], 284, 12, "value != null");
+      if (this[_spacing] === value) return;
+      this[_spacing] = value;
+      this.markNeedsLayout();
+    }
+    get overflowSpacing() {
+      return this[_overflowSpacing];
+    }
+    set overflowSpacing(value) {
+      if (!(value !== null)) dart.assertFailed(null, I[1], 294, 12, "value != null");
+      if (this[_overflowSpacing] === value) return;
+      this[_overflowSpacing] = value;
+      this.markNeedsLayout();
+    }
+    get overflowAlignment() {
+      return this[_overflowAlignment];
+    }
+    set overflowAlignment(value) {
+      if (!(value !== null)) dart.assertFailed(null, I[1], 304, 12, "value != null");
+      if (this[_overflowAlignment] === value) return;
+      this[_overflowAlignment] = value;
+      this.markNeedsLayout();
+    }
+    get overflowDirection() {
+      return this[_overflowDirection];
+    }
+    set overflowDirection(value) {
+      if (!(value !== null)) dart.assertFailed(null, I[1], 314, 12, "value != null");
+      if (this[_overflowDirection] === value) return;
+      this[_overflowDirection] = value;
+      this.markNeedsLayout();
+    }
+    get textDirection() {
+      return this[_textDirection];
+    }
+    set textDirection(value) {
+      if (this[_textDirection] === value) return;
+      this[_textDirection] = value;
+      this.markNeedsLayout();
+    }
+    get clipBehavior() {
+      return this[_clipBehavior];
+    }
+    set clipBehavior(value) {
+      if (!(value !== null)) dart.assertFailed(null, I[1], 333, 12, "value != null");
+      if (value === this[_clipBehavior]) return;
+      this[_clipBehavior] = value;
+      this.markNeedsPaint();
+      this.markNeedsSemanticsUpdate();
+    }
+    setupParentData(child) {
+      box.RenderBox.as(child);
+      if (!overflow_bar._OverflowBarParentData.is(child.parentData)) child.parentData = new overflow_bar._OverflowBarParentData.new();
+    }
+    computeMinIntrinsicHeight(width) {
+      let child = this.firstChild;
+      if (child == null) return 0.0;
+      let barWidth = 0.0;
+      while (child != null) {
+        barWidth = barWidth + child.getMinIntrinsicWidth(1 / 0);
+        child = this.childAfter(child);
+      }
+      barWidth = barWidth + this.spacing * (this.childCount - 1);
+      let height = 0.0;
+      if (barWidth > width) {
+        child = this.firstChild;
+        while (child != null) {
+          height = height + child.getMinIntrinsicHeight(width);
+          child = this.childAfter(child);
+        }
+        return height + this.overflowSpacing * (this.childCount - 1);
+      } else {
+        child = this.firstChild;
+        while (child != null) {
+          height = math.max(core.double, height, child.getMinIntrinsicHeight(width));
+          child = this.childAfter(child);
+        }
+        return height;
+      }
+    }
+    computeMaxIntrinsicHeight(width) {
+      let child = this.firstChild;
+      if (child == null) return 0.0;
+      let barWidth = 0.0;
+      while (child != null) {
+        barWidth = barWidth + child.getMinIntrinsicWidth(1 / 0);
+        child = this.childAfter(child);
+      }
+      barWidth = barWidth + this.spacing * (this.childCount - 1);
+      let height = 0.0;
+      if (barWidth > width) {
+        child = this.firstChild;
+        while (child != null) {
+          height = height + child.getMaxIntrinsicHeight(width);
+          child = this.childAfter(child);
+        }
+        return height + this.overflowSpacing * (this.childCount - 1);
+      } else {
+        child = this.firstChild;
+        while (child != null) {
+          height = math.max(core.double, height, child.getMaxIntrinsicHeight(width));
+          child = this.childAfter(child);
+        }
+        return height;
+      }
+    }
+    computeMinIntrinsicWidth(height) {
+      let child = this.firstChild;
+      if (child == null) return 0.0;
+      let width = 0.0;
+      while (child != null) {
+        width = width + child.getMinIntrinsicWidth(1 / 0);
+        child = this.childAfter(child);
+      }
+      return width + this.spacing * (this.childCount - 1);
+    }
+    computeMaxIntrinsicWidth(height) {
+      let child = this.firstChild;
+      if (child == null) return 0.0;
+      let width = 0.0;
+      while (child != null) {
+        width = width + child.getMaxIntrinsicWidth(1 / 0);
+        child = this.childAfter(child);
+      }
+      return width + this.spacing * (this.childCount - 1);
+    }
+    computeDistanceToActualBaseline(baseline) {
+      return this.defaultComputeDistanceToHighestActualBaseline(baseline);
+    }
+    computeDryLayout(constraints) {
+      let child = this.firstChild;
+      if (child == null) {
+        return constraints.smallest;
+      }
+      let childConstraints = constraints.loosen();
+      let childrenWidth = 0.0;
+      let maxChildHeight = 0.0;
+      let y = 0.0;
+      while (child != null) {
+        let childSize = child.getDryLayout(childConstraints);
+        childrenWidth = childrenWidth + childSize.width;
+        maxChildHeight = math.max(core.double, maxChildHeight, childSize.height);
+        y = y + (childSize.height + this.overflowSpacing);
+        child = this.childAfter(child);
+      }
+      let actualWidth = childrenWidth + this.spacing * (this.childCount - 1);
+      if (actualWidth > constraints.maxWidth) {
+        return constraints.constrain(new ui.Size.new(constraints.maxWidth, y - this.overflowSpacing));
+      } else {
+        return constraints.constrain(new ui.Size.new(actualWidth, maxChildHeight));
+      }
+    }
+    performLayout() {
+      let child = this.firstChild;
+      if (child == null) {
+        this.size = this.constraints.smallest;
+        return;
+      }
+      let childConstraints = this.constraints.loosen();
+      let childrenWidth = 0.0;
+      let maxChildHeight = 0.0;
+      let maxChildWidth = 0.0;
+      while (child != null) {
+        child.layout(childConstraints, {parentUsesSize: true});
+        childrenWidth = childrenWidth + child.size.width;
+        maxChildHeight = math.max(core.double, maxChildHeight, child.size.height);
+        maxChildWidth = math.max(core.double, maxChildWidth, child.size.width);
+        child = this.childAfter(child);
+      }
+      let rtl = this.textDirection === ui.TextDirection.rtl;
+      let actualWidth = childrenWidth + this.spacing * (this.childCount - 1);
+      if (actualWidth > this.constraints.maxWidth) {
+        child = this.overflowDirection === basic_types.VerticalDirection.down ? this.firstChild : this.lastChild;
+        const nextChild = () => {
+          return this.overflowDirection === basic_types.VerticalDirection.down ? this.childAfter(dart.nullCheck(child)) : this.childBefore(dart.nullCheck(child));
+        };
+        dart.fn(nextChild, T.VoidToRenderBoxN());
+        let y = 0.0;
+        while (child != null) {
+          let childParentData = overflow_bar._OverflowBarParentData.as(dart.nullCheck(child.parentData));
+          let x = 0.0;
+          switch (this.overflowAlignment) {
+            case C[0] || CT.C0:
+            {
+              x = rtl ? this.constraints.maxWidth - child.size.width : 0.0;
+              break;
+            }
+            case C[2] || CT.C2:
+            {
+              x = (this.constraints.maxWidth - child.size.width) / 2;
+              break;
+            }
+            case C[1] || CT.C1:
+            {
+              x = rtl ? 0.0 : this.constraints.maxWidth - child.size.width;
+              break;
+            }
+          }
+          if (!(x !== null)) dart.assertFailed(null, I[1], 506, 16, "x != null");
+          childParentData.offset = new ui.Offset.new(x, y);
+          y = y + (child.size.height + this.overflowSpacing);
+          child = nextChild();
+        }
+        this.size = this.constraints.constrain(new ui.Size.new(this.constraints.maxWidth, y - this.overflowSpacing));
+      } else {
+        child = rtl ? this.lastChild : this.firstChild;
+        const nextChild = () => {
+          return rtl ? this.childBefore(dart.nullCheck(child)) : this.childAfter(dart.nullCheck(child));
+        };
+        dart.fn(nextChild, T.VoidToRenderBoxN());
+        let x = 0.0;
+        while (child != null) {
+          let childParentData = overflow_bar._OverflowBarParentData.as(dart.nullCheck(child.parentData));
+          childParentData.offset = new ui.Offset.new(x, (maxChildHeight - child.size.height) / 2);
+          x = x + (child.size.width + this.spacing);
+          child = nextChild();
+        }
+        this.size = this.constraints.constrain(new ui.Size.new(actualWidth, maxChildHeight));
+      }
+    }
+    hitTestChildren(result, opts) {
+      let position = opts && 'position' in opts ? opts.position : null;
+      return this.defaultHitTestChildren(result, {position: position});
+    }
+    paint(context, offset) {
+      this.defaultPaint(context, offset);
+    }
+    debugFillProperties(properties) {
+      super.debugFillProperties(properties);
+      properties.add(new diagnostics.DoubleProperty.new("spacing", this.spacing, {defaultValue: 0}));
+      properties.add(new diagnostics.DoubleProperty.new("overflowSpacing", this.overflowSpacing, {defaultValue: 0}));
+      properties.add(new (T.EnumPropertyOfOverflowBarAlignment()).new("overflowAlignment", this.overflowAlignment, {defaultValue: overflow_bar.OverflowBarAlignment.start}));
+      properties.add(new (T.EnumPropertyOfVerticalDirection()).new("overflowDirection", this.overflowDirection, {defaultValue: basic_types.VerticalDirection.down}));
+      properties.add(new (T.EnumPropertyOfTextDirection()).new("textDirection", this.textDirection, {defaultValue: null}));
     }
   };
-  (spring_simulation._SpringSolution[dart.mixinNew] = function() {
-  }).prototype = spring_simulation._SpringSolution.prototype;
-  dart.addTypeTests(spring_simulation._SpringSolution);
-  dart.addTypeCaches(spring_simulation._SpringSolution);
-  dart.setLibraryUri(spring_simulation._SpringSolution, I[0]);
-  var _r = dart.privateName(spring_simulation, "_r");
-  var _c1 = dart.privateName(spring_simulation, "_c1");
-  var _c2 = dart.privateName(spring_simulation, "_c2");
-  spring_simulation._CriticalSolution = class _CriticalSolution extends core.Object {
-    static new(spring, distance, velocity) {
-      let r = -spring.damping / (2.0 * spring.mass);
-      let c1 = distance;
-      let c2 = velocity / (r * distance);
-      return new spring_simulation._CriticalSolution.withArgs(r, c1, c2);
-    }
-    x(time) {
-      return (this[_c1] + this[_c2] * time) * math.pow(2.718281828459045, this[_r] * time);
-    }
-    dx(time) {
-      let power = math.pow(2.718281828459045, this[_r] * time);
-      return this[_r] * (this[_c1] + this[_c2] * time) * power + this[_c2] * power;
-    }
-    get type() {
-      return spring_simulation.SpringType.criticallyDamped;
-    }
-  };
-  (spring_simulation._CriticalSolution.withArgs = function(r, c1, c2) {
-    this[_r] = r;
-    this[_c1] = c1;
-    this[_c2] = c2;
-    ;
-  }).prototype = spring_simulation._CriticalSolution.prototype;
-  dart.addTypeTests(spring_simulation._CriticalSolution);
-  dart.addTypeCaches(spring_simulation._CriticalSolution);
-  spring_simulation._CriticalSolution[dart.implements] = () => [spring_simulation._SpringSolution];
-  dart.setMethodSignature(spring_simulation._CriticalSolution, () => ({
-    __proto__: dart.getMethods(spring_simulation._CriticalSolution.__proto__),
-    x: dart.fnType(core.double, [core.double]),
-    dx: dart.fnType(core.double, [core.double])
+  (overflow_bar._RenderOverflowBar.new = function(opts) {
+    let children = opts && 'children' in opts ? opts.children : null;
+    let spacing = opts && 'spacing' in opts ? opts.spacing : 0;
+    let overflowSpacing = opts && 'overflowSpacing' in opts ? opts.overflowSpacing : 0;
+    let overflowAlignment = opts && 'overflowAlignment' in opts ? opts.overflowAlignment : C[0] || CT.C0;
+    let overflowDirection = opts && 'overflowDirection' in opts ? opts.overflowDirection : C[4] || CT.C4;
+    let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[5] || CT.C5;
+    this[_clipBehavior] = ui.Clip.none;
+    if (!(spacing !== null)) dart.assertFailed(null, I[1], 267, 15, "spacing != null");
+    if (!(overflowSpacing !== null)) dart.assertFailed(null, I[1], 268, 15, "overflowSpacing != null");
+    if (!(overflowAlignment !== null)) dart.assertFailed(null, I[1], 269, 15, "overflowAlignment != null");
+    if (!(textDirection !== null)) dart.assertFailed(null, I[1], 270, 15, "textDirection != null");
+    if (!(clipBehavior !== null)) dart.assertFailed(null, I[1], 271, 15, "clipBehavior != null");
+    this[_spacing] = spacing;
+    this[_overflowSpacing] = overflowSpacing;
+    this[_overflowAlignment] = overflowAlignment;
+    this[_overflowDirection] = overflowDirection;
+    this[_textDirection] = textDirection;
+    this[_clipBehavior] = clipBehavior;
+    overflow_bar._RenderOverflowBar.__proto__.new.call(this);
+    this.addAll(children);
+  }).prototype = overflow_bar._RenderOverflowBar.prototype;
+  dart.addTypeTests(overflow_bar._RenderOverflowBar);
+  dart.addTypeCaches(overflow_bar._RenderOverflowBar);
+  dart.setGetterSignature(overflow_bar._RenderOverflowBar, () => ({
+    __proto__: dart.getGetters(overflow_bar._RenderOverflowBar.__proto__),
+    spacing: core.double,
+    overflowSpacing: core.double,
+    overflowAlignment: overflow_bar.OverflowBarAlignment,
+    overflowDirection: basic_types.VerticalDirection,
+    textDirection: ui.TextDirection,
+    clipBehavior: ui.Clip
   }));
-  dart.setGetterSignature(spring_simulation._CriticalSolution, () => ({
-    __proto__: dart.getGetters(spring_simulation._CriticalSolution.__proto__),
-    type: spring_simulation.SpringType
+  dart.setSetterSignature(overflow_bar._RenderOverflowBar, () => ({
+    __proto__: dart.getSetters(overflow_bar._RenderOverflowBar.__proto__),
+    spacing: core.double,
+    overflowSpacing: core.double,
+    overflowAlignment: overflow_bar.OverflowBarAlignment,
+    overflowDirection: basic_types.VerticalDirection,
+    textDirection: ui.TextDirection,
+    clipBehavior: ui.Clip
   }));
-  dart.setLibraryUri(spring_simulation._CriticalSolution, I[0]);
-  dart.setFieldSignature(spring_simulation._CriticalSolution, () => ({
-    __proto__: dart.getFields(spring_simulation._CriticalSolution.__proto__),
-    [_r]: dart.finalFieldType(core.double),
-    [_c1]: dart.finalFieldType(core.double),
-    [_c2]: dart.finalFieldType(core.double)
+  dart.setLibraryUri(overflow_bar._RenderOverflowBar, I[0]);
+  dart.setFieldSignature(overflow_bar._RenderOverflowBar, () => ({
+    __proto__: dart.getFields(overflow_bar._RenderOverflowBar.__proto__),
+    [_spacing]: dart.fieldType(core.double),
+    [_overflowSpacing]: dart.fieldType(core.double),
+    [_overflowAlignment]: dart.fieldType(overflow_bar.OverflowBarAlignment),
+    [_overflowDirection]: dart.fieldType(basic_types.VerticalDirection),
+    [_textDirection]: dart.fieldType(ui.TextDirection),
+    [_clipBehavior]: dart.fieldType(ui.Clip)
   }));
-  var _r1 = dart.privateName(spring_simulation, "_r1");
-  var _r2 = dart.privateName(spring_simulation, "_r2");
-  spring_simulation._OverdampedSolution = class _OverdampedSolution extends core.Object {
-    static new(spring, distance, velocity) {
-      let cmk = spring.damping * spring.damping - 4 * spring.mass * spring.stiffness;
-      let r1 = (-spring.damping - math.sqrt(cmk)) / (2.0 * spring.mass);
-      let r2 = (-spring.damping + math.sqrt(cmk)) / (2.0 * spring.mass);
-      let c2 = (velocity - r1 * distance) / (r2 - r1);
-      let c1 = distance - c2;
-      return new spring_simulation._OverdampedSolution.withArgs(r1, r2, c1, c2);
-    }
-    x(time) {
-      return this[_c1] * math.pow(2.718281828459045, this[_r1] * time) + this[_c2] * math.pow(2.718281828459045, this[_r2] * time);
-    }
-    dx(time) {
-      return this[_c1] * this[_r1] * math.pow(2.718281828459045, this[_r1] * time) + this[_c2] * this[_r2] * math.pow(2.718281828459045, this[_r2] * time);
-    }
-    get type() {
-      return spring_simulation.SpringType.overDamped;
-    }
-  };
-  (spring_simulation._OverdampedSolution.withArgs = function(r1, r2, c1, c2) {
-    this[_r1] = r1;
-    this[_r2] = r2;
-    this[_c1] = c1;
-    this[_c2] = c2;
-    ;
-  }).prototype = spring_simulation._OverdampedSolution.prototype;
-  dart.addTypeTests(spring_simulation._OverdampedSolution);
-  dart.addTypeCaches(spring_simulation._OverdampedSolution);
-  spring_simulation._OverdampedSolution[dart.implements] = () => [spring_simulation._SpringSolution];
-  dart.setMethodSignature(spring_simulation._OverdampedSolution, () => ({
-    __proto__: dart.getMethods(spring_simulation._OverdampedSolution.__proto__),
-    x: dart.fnType(core.double, [core.double]),
-    dx: dart.fnType(core.double, [core.double])
-  }));
-  dart.setGetterSignature(spring_simulation._OverdampedSolution, () => ({
-    __proto__: dart.getGetters(spring_simulation._OverdampedSolution.__proto__),
-    type: spring_simulation.SpringType
-  }));
-  dart.setLibraryUri(spring_simulation._OverdampedSolution, I[0]);
-  dart.setFieldSignature(spring_simulation._OverdampedSolution, () => ({
-    __proto__: dart.getFields(spring_simulation._OverdampedSolution.__proto__),
-    [_r1]: dart.finalFieldType(core.double),
-    [_r2]: dart.finalFieldType(core.double),
-    [_c1]: dart.finalFieldType(core.double),
-    [_c2]: dart.finalFieldType(core.double)
-  }));
-  var _w = dart.privateName(spring_simulation, "_w");
-  spring_simulation._UnderdampedSolution = class _UnderdampedSolution extends core.Object {
-    static new(spring, distance, velocity) {
-      let w = math.sqrt(4.0 * spring.mass * spring.stiffness - spring.damping * spring.damping) / (2.0 * spring.mass);
-      let r = -(spring.damping / 2.0 * spring.mass);
-      let c1 = distance;
-      let c2 = (velocity - r * distance) / w;
-      return new spring_simulation._UnderdampedSolution.withArgs(w, r, c1, c2);
-    }
-    x(time) {
-      return math.pow(2.718281828459045, this[_r] * time) * (this[_c1] * math.cos(this[_w] * time) + this[_c2] * math.sin(this[_w] * time));
-    }
-    dx(time) {
-      let power = math.pow(2.718281828459045, this[_r] * time);
-      let cosine = math.cos(this[_w] * time);
-      let sine = math.sin(this[_w] * time);
-      return power * (this[_c2] * this[_w] * cosine - this[_c1] * this[_w] * sine) + this[_r] * power * (this[_c2] * sine + this[_c1] * cosine);
-    }
-    get type() {
-      return spring_simulation.SpringType.underDamped;
-    }
-  };
-  (spring_simulation._UnderdampedSolution.withArgs = function(w, r, c1, c2) {
-    this[_w] = w;
-    this[_r] = r;
-    this[_c1] = c1;
-    this[_c2] = c2;
-    ;
-  }).prototype = spring_simulation._UnderdampedSolution.prototype;
-  dart.addTypeTests(spring_simulation._UnderdampedSolution);
-  dart.addTypeCaches(spring_simulation._UnderdampedSolution);
-  spring_simulation._UnderdampedSolution[dart.implements] = () => [spring_simulation._SpringSolution];
-  dart.setMethodSignature(spring_simulation._UnderdampedSolution, () => ({
-    __proto__: dart.getMethods(spring_simulation._UnderdampedSolution.__proto__),
-    x: dart.fnType(core.double, [core.double]),
-    dx: dart.fnType(core.double, [core.double])
-  }));
-  dart.setGetterSignature(spring_simulation._UnderdampedSolution, () => ({
-    __proto__: dart.getGetters(spring_simulation._UnderdampedSolution.__proto__),
-    type: spring_simulation.SpringType
-  }));
-  dart.setLibraryUri(spring_simulation._UnderdampedSolution, I[0]);
-  dart.setFieldSignature(spring_simulation._UnderdampedSolution, () => ({
-    __proto__: dart.getFields(spring_simulation._UnderdampedSolution.__proto__),
-    [_w]: dart.finalFieldType(core.double),
-    [_r]: dart.finalFieldType(core.double),
-    [_c1]: dart.finalFieldType(core.double),
-    [_c2]: dart.finalFieldType(core.double)
-  }));
-  dart.trackLibraries("packages/flutter/src/physics/spring_simulation.dart", {
-    "package:flutter/src/physics/spring_simulation.dart": spring_simulation
+  dart.trackLibraries("packages/flutter/src/widgets/overflow_bar.dart", {
+    "package:flutter/src/widgets/overflow_bar.dart": overflow_bar
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["spring_simulation.dart"],"names":[],"mappings":"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","file":"../../../../../../../../D:/packages/flutter/src/physics/spring_simulation.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["overflow_bar.dart"],"names":[],"mappings":"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","file":"../../../../../../../../D:/packages/flutter/src/widgets/overflow_bar.dart.lib.js"}');
   // Exports:
   return {
-    src__physics__spring_simulation: spring_simulation
+    src__widgets__overflow_bar: overflow_bar
   };
 }));
 
-//# sourceMappingURL=spring_simulation.dart.lib.js.map
+//# sourceMappingURL=overflow_bar.dart.lib.js.map
