@@ -82,10 +82,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               ),
                             )),
                   SizedBox(
-                    height: width > 374 ? width * 0.05 : width * 0.00,
+                    height: height > 667.0 ? width * 0.05 : width * 0.00,
                   ),
                   Container(
-                    height: width > 374 ? width * 1.2 : width * 1.1,
+                    height: height > 667.0 ? width * 1.1 : width * 1.1,
                     // color: Colors.amber,
                     child: PageView(
                       physics: ClampingScrollPhysics(),
@@ -112,13 +112,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               ),
                               SizedBox(height: height * 0.03),
                               Text(
-                                'EARN MONEY',
+                                'User friendly',
                                 style: kTitleStyle,
                                 textAlign: TextAlign.center,
                               ),
                               SizedBox(height: height * 0.02),
                               Text(
-                                'An online earning app through which you can earn as mush as you want just by uploading an image.',
+                                'Follow the simple steps and instructions',
                                 style: kSubtitleStyle,
                                 textAlign: TextAlign.center,
                               ),
@@ -141,13 +141,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               ),
                               SizedBox(height: height * 0.03),
                               Text(
-                                'User Friendly',
+                                'Get notifications',
                                 style: kTitleStyle,
                                 textAlign: TextAlign.center,
                               ),
                               SizedBox(height: height * 0.02),
                               Text(
-                                'An online earning app through which you can earn as mush as you want just by uploading an image.',
+                                'Complete a task at the set time',
                                 style: kSubtitleStyle,
                                 textAlign: TextAlign.center,
                               ),
@@ -170,13 +170,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               ),
                               SizedBox(height: height * 0.03),
                               Text(
-                                'Here We Go!',
+                                'Upload a proof',
                                 style: kTitleStyle,
                                 textAlign: TextAlign.center,
                               ),
                               SizedBox(height: height * 0.02),
                               Text(
-                                'An online earning app through which you can earn as mush as you want just by uploading an image.',
+                                'Upload an image of work done and earn salary for a job well done.',
                                 style: kSubtitleStyle,
                                 textAlign: TextAlign.center,
                               ),
@@ -199,7 +199,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                                 duration: Duration(milliseconds: 500),
                                 curve: Curves.ease,
                               );
-                              print(width);
+                              print(height);
                             },
                             style: ElevatedButton.styleFrom(
                               primary: Color(0xFF027979),
